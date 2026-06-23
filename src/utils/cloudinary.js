@@ -14,7 +14,8 @@ const uploadOnCloudinary = async (localFilePath) => {
         const response = await cloudinary.uploader.upload(localFilePath,{
             resource_type:"auto"
         })
-        console.log("file uploaded on cloudinary",response.url);
+        //console.log("file uploaded on cloudinary",response.url);
+        fs.unlinkSync(localFilePath)
         return response;
     }
     catch(error){
@@ -23,7 +24,7 @@ const uploadOnCloudinary = async (localFilePath) => {
     }
 }
 
-cloudinary.v2.uploader
+cloudinary.uploader
   .upload("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Olympic_flag.svg/960px-Olympic_flag.svg.png?_=20220221024417",
     {public_id:"olympic_flag"},
     function(error,result) {console.log(result);});
