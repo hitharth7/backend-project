@@ -19,14 +19,11 @@ const uploadOnCloudinary = async (localFilePath) => {
         return response;
     }
     catch(error){
-        fs.unlinkSync(localFilePath)
+        if (localFilePath && fs.existsSync(localFilePath)) {
+            fs.unlinkSync(localFilePath)
+        }
         return null;
     }
 }
-
-cloudinary.uploader
-  .upload("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Olympic_flag.svg/960px-Olympic_flag.svg.png?_=20220221024417",
-    {public_id:"olympic_flag"},
-    function(error,result) {console.log(result);});
 
 export {uploadOnCloudinary}
