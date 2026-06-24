@@ -272,7 +272,7 @@ const updateAccountDetails = asyncHandler(async(req,res)=>{
 
 })
 
-const updateUserAvater = asyncHandler(async(req,res)=>{
+const updateUserAvatar = asyncHandler(async(req,res)=>{
     const avatarLocalPath = req.file?.path
 
     if(!avatarLocalPath){
@@ -465,7 +465,7 @@ export {registerUser,
     changeCurrentPassword, 
     getCurrentUser,
     updateAccountDetails,
-    updateUserAvater,
+    updateUserAvatar,
     updateUserCoverImage,
     getUserChannelProfile,
     getWatchHistory
